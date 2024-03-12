@@ -24,7 +24,7 @@ The default banned countries are Hong Kong, China, Singapore. If you want to cha
 
     target_country_name="Hong Kong|China|Singapore"
 
-to city or country name (case sensitive, Valve decided name, [full json list](https://api.steampowered.com/ISteamApps/GetSDRConfig/v1/?appid=730)), join them with `|`.
+to city or country name you want to ban (case sensitive, Valve decided name, [full json list](https://api.steampowered.com/ISteamApps/GetSDRConfig/v1/?appid=730)), join them with `|`.
 
 Ban command example:
 
