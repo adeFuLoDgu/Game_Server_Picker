@@ -16,7 +16,6 @@ if [ "$1" == "-g" ];then
 	curl "https://api.steampowered.com/ISteamApps/GetSDRConfig/v1/?appid=730" -o ${script_dir}/cs2_ips.json
 	if [ -f ${script_dir}/cs2_ips.json ];then
 		region_code=$( sh JSON.sh -b < ${script_dir}/cs2_ips.json | awk -v regex="${target_country_name}" -F'"' '( $6 == "desc" && $8 ~ regex ) {print $4}' | sed ':a;N;$!ba;s/\n/|/g' )
-		echo ${region_code}
 		sh JSON.sh -b < ${script_dir}/cs2_ips.json | awk -v regex=${region_code} -F'"' '( $4 ~ regex && $6 == "relays" && $8 == "ipv4" && $12 != "port_range" ) {print $10}' > ${script_dir}/cs2_ips
 		rm ${script_dir}/cs2_ips.json
 	fi
